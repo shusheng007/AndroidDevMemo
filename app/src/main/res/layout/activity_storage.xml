@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="12dp"
+    tools:context=".storage.StorageActivity">
+    <ScrollView
+        android:id="@+id/sv_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tv_result">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_write_internal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="写入内部存储"
+            app:layout_constraintEnd_toStartOf="@+id/btn_read_internal"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_write_internal_catch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="写入内部缓存"
+            app:layout_constraintEnd_toStartOf="@+id/btn_read_internal_catch"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_write_internal" />
+
+        <Button
+            android:id="@+id/btn_write_external"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="写入外部存储"
+            app:layout_constraintEnd_toStartOf="@+id/btn_read_external"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_write_internal_catch" />
+
+        <Button
+            android:id="@+id/btn_read_external"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="读取外部存储"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_write_external"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_write_external"
+            app:layout_constraintTop_toTopOf="@+id/btn_write_external" />
+
+        <Button
+            android:id="@+id/btn_read_internal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="读取内部存储"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_write_internal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_write_internal"
+            app:layout_constraintTop_toTopOf="@+id/btn_write_internal" />
+
+        <Button
+            android:id="@+id/btn_read_internal_catch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="读取内部缓存"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_write_internal_catch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_write_internal_catch"
+            app:layout_constraintTop_toTopOf="@+id/btn_write_internal_catch" />
+
+        <Button
+            android:id="@+id/btn_write_external_catch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="写入外部缓存"
+            app:layout_constraintEnd_toStartOf="@+id/btn_read_external_catch"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_write_external" />
+
+        <Button
+            android:id="@+id/btn_read_external_catch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="读取外部缓存"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_write_external_catch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_write_external_catch"
+            app:layout_constraintTop_toTopOf="@+id/btn_write_external_catch" />
+
+            <Button
+                android:id="@+id/btn_write_sd_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="写入SD卡"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_read_sd_card"
+                app:layout_constraintTop_toBottomOf="@+id/btn_write_external_catch" />
+
+            <Button
+                android:id="@+id/btn_read_sd_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="保留"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_write_sd_card"
+                app:layout_constraintStart_toEndOf="@+id/btn_write_sd_card"
+                app:layout_constraintTop_toTopOf="@+id/btn_write_sd_card" />
+
+      </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/C1"
+        android:textSize="16sp"
+        android:hint="结果展示"
+        android:singleLine="false"
+        android:lineSpacingMultiplier="1.2"
+        android:padding="5dp"
+        android:scrollbars="vertical"
+        android:background="#F3F3F3"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

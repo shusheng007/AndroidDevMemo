@@ -1,5 +1,6 @@
 package top.ss007.androiddevmemo
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -7,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import top.ss007.androiddevmemo.storage.StorageActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var currentLayoutType: LayoutManagerType
@@ -31,13 +33,13 @@ class MainActivity : AppCompatActivity() {
             override fun onItemClicked(view: View, data: MemoData) {
                 when(data.type){
                     MemoType.STORAGE->{
-
+                        startActivity(Intent(this@MainActivity,StorageActivity::class.java))
                     }
                     MemoType.FILE_SHARE->{
 
                     }
                 }
-                Toast.makeText(this@MainActivity, data.toString(), Toast.LENGTH_LONG).show()
+//                Toast.makeText(this@MainActivity, data.toString(), Toast.LENGTH_LONG).show()
             }
         }
         recyclerView.adapter = adapter
