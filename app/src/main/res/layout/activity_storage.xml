@@ -117,15 +117,15 @@
                 android:text="写入SD卡"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btn_read_sd_card"
+                app:layout_constraintEnd_toStartOf="@+id/btn_save_media_to_gallery"
                 app:layout_constraintTop_toBottomOf="@+id/btn_write_external_catch" />
 
             <Button
-                android:id="@+id/btn_read_sd_card"
+                android:id="@+id/btn_save_media_to_gallery"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="保留"
+                android:text="保存媒体到相册"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="@+id/btn_write_sd_card"
