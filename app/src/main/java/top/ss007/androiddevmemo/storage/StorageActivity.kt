@@ -1,6 +1,8 @@
 package top.ss007.androiddevmemo.storage
 
 import android.Manifest
+import android.content.Context
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.media.MediaScannerConnection
 import android.net.Uri
@@ -22,6 +24,7 @@ import java.io.FileOutputStream
  */
 class StorageActivity : AppCompatActivity() {
     private lateinit var tvResult: TextView
+    private lateinit var sharePreferences: SharedPreferences
     private var sb = StringBuilder()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +41,9 @@ class StorageActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_read_external_catch).setOnClickListener(listener)
         findViewById<Button>(R.id.btn_write_sd_card).setOnClickListener(listener)
         findViewById<Button>(R.id.btn_save_media_to_gallery).setOnClickListener(listener)
+        findViewById<Button>(R.id.btn_write_share).setOnClickListener(listener)
+        findViewById<Button>(R.id.btn_read_share).setOnClickListener(listener)
+        sharePreferences = getSharedPreferences("$PACKAGE_ID _preference", Context.MODE_PRIVATE)
     }
 
     private val listener = View.OnClickListener { v ->
@@ -47,24 +53,24 @@ class StorageActivity : AppCompatActivity() {
                 val dir = this@StorageActivity.filesDir
                 val file = File(dir, INTERNAL_FILE_NAME)
                 writeFile(file)
-                sb.append("内部写: $dir \n\n")
+                printResult("内部写: $dir \n\n")
             }
             R.id.btn_read_internal -> {
                 val resultStr =
                     readFile(this@StorageActivity.filesDir.path + "/" + INTERNAL_FILE_NAME)
-                sb.append("内部读: $resultStr \n\n")
+                printResult("内部读: $resultStr \n\n")
             }
             //APP自己可以读写，当系统存储不足时会被删除，用户最好自己维护缓存的size
             R.id.btn_write_internal_catch -> {
                 val dir = this@StorageActivity.cacheDir
                 val file = File(dir, INTERNAL_CATCH_FILE_NAME)
                 writeFile(file)
-                sb.append("内部缓存写: $dir \n\n")
+                printResult("内部缓存写: $dir \n\n")
             }
             R.id.btn_read_internal_catch -> {
                 val resultStr =
                     readFile(this@StorageActivity.cacheDir.path + "/" + INTERNAL_CATCH_FILE_NAME)
-                sb.append("内部缓存读: $resultStr \n\n")
+                printResult("内部缓存读: $resultStr \n\n")
             }
             //所有APP可见，但是需要知道具体的文件路径，API>19以后不需要写入及读取存储的权限
             R.id.btn_write_external -> {
@@ -72,24 +78,24 @@ class StorageActivity : AppCompatActivity() {
                 val dir = this@StorageActivity.getExternalFilesDir(null)
                 val file = File(dir, EXTERNAL_FILE_NAME)
                 writeFile(file)
-                sb.append("外部写: $dir \n\n")
+                printResult("外部写: $dir \n\n")
             }
             R.id.btn_read_external -> {
                 val dir = this@StorageActivity.getExternalFilesDir(null)
                 val resultStr =
                     readFile(dir?.path + "/" + EXTERNAL_FILE_NAME)
-                sb.append("外部读: $resultStr \n\n")
+                printResult("外部读: $resultStr \n\n")
             }
             R.id.btn_write_external_catch -> {
                 val dir = this@StorageActivity.externalCacheDir
                 val file = File(dir, EXTERNAL_CATCH_FILE_NAME)
                 writeFile(file)
-                sb.append("外部缓存写: $dir \n\n")
+                printResult("外部缓存写: $dir \n\n")
             }
             R.id.btn_read_external_catch -> {
                 val resultStr =
                     readFile(this@StorageActivity.externalCacheDir?.path + "/" + EXTERNAL_CATCH_FILE_NAME)
-                sb.append("外部缓存读: $resultStr \n\n")
+                printResult("外部缓存读: $resultStr \n\n")
             }
             //需要写存储权限
             R.id.btn_write_sd_card -> {
@@ -101,6 +107,7 @@ class StorageActivity : AppCompatActivity() {
                     )
                 }
             }
+            //将图片插入相册
             R.id.btn_save_media_to_gallery -> {
                 if (Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED) {
                     ActivityCompat.requestPermissions(
@@ -110,14 +117,28 @@ class StorageActivity : AppCompatActivity() {
                     )
                 }
             }
+
+            R.id.btn_write_share -> {
+                with(sharePreferences.edit()) {
+                    putString("name", "ShuSheng007")
+                    commit()
+                    //commit() 同步写入
+                    //apply() 异步写入
+                }
+                printResult("写入name：ShuSheng007 \n\n")
+            }
+            R.id.btn_read_share -> {
+                val result = sharePreferences.getString("name", "")
+                printResult("读取name: $result \n\n")
+            }
         }
-        tvResult.text = sb.toString()
     }
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
-        grantResults: IntArray) {
+        grantResults: IntArray
+    ) {
         when (requestCode) {
             PERMISSION_REQUEST_CODE -> {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -130,10 +151,11 @@ class StorageActivity : AppCompatActivity() {
                     val file = File(dir, SD_CARD_FILE_NAME)
                     writeFile(file)
                     printResult("sd卡写: $dirPath \n\n")
+                    printResult("sd卡写2: ${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)} \n\n")
                 }
             }
-            PERMISSION_REQUEST_CODE_SAVE_TO_GALLERY->{
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED){
+            PERMISSION_REQUEST_CODE_SAVE_TO_GALLERY -> {
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     saveImageOfRaw(R.raw.my_family)
                 }
             }
@@ -152,6 +174,7 @@ class StorageActivity : AppCompatActivity() {
         //路径必须是存储在外部存储的非私有路径下才能在相册里面展示
 //        val dir = this@StorageActivity.getExternalFilesDir(Environment.DIRECTORY_PICTURES) 不可以
 //        val dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) 可以
+        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
         val dirPath = Environment.getExternalStorageDirectory().path
         val dir = File("$dirPath/AndroidDevMemo")
         if (dir.exists().not()) {
@@ -170,6 +193,7 @@ class StorageActivity : AppCompatActivity() {
                     printResult("Scanned $path:->uri=$uri\n\n")
                 }
             })
+
     }
 
     private fun readFile(pathName: String): String {
@@ -195,6 +219,7 @@ class StorageActivity : AppCompatActivity() {
         private val EXTERNAL_FILE_NAME = "external.txt"
         private val EXTERNAL_CATCH_FILE_NAME = "externalCatch.txt"
         private val SD_CARD_FILE_NAME = "sdCard.txt"
+        private val PACKAGE_ID = "top.ss007.androiddevmemo.storage"
 
         private val PERMISSION_REQUEST_CODE = 100
         private val PERMISSION_REQUEST_CODE_SAVE_TO_GALLERY = 101
