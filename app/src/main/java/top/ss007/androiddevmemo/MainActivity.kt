@@ -3,11 +3,11 @@ package top.ss007.androiddevmemo
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import top.ss007.androiddevmemo.fragments.FragmentDemoActivity
 import top.ss007.androiddevmemo.storage.StorageActivity
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +26,8 @@ class MainActivity : AppCompatActivity() {
         dataSet =
             listOf(
                 MemoData(1, "存储", MemoType.STORAGE),
-                MemoData(2, "文件分享", MemoType.FILE_SHARE)
+                MemoData(2, "文件分享", MemoType.FILE_SHARE),
+                MemoData(3, "Fragment", MemoType.FRAGMENT)
             )
         val adapter = CustomAdapter(dataSet)
         adapter.itemClickListener = object : CustomAdapter.OnItemClickListener {
@@ -36,6 +37,10 @@ class MainActivity : AppCompatActivity() {
                         startActivity(Intent(this@MainActivity,StorageActivity::class.java))
                     }
                     MemoType.FILE_SHARE->{
+
+                    }
+                    MemoType.FRAGMENT->{
+                        startActivity(Intent(this@MainActivity,FragmentDemoActivity::class.java))
 
                     }
                 }
