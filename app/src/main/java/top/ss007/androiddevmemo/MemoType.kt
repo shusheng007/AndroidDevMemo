@@ -11,5 +11,6 @@ package top.ss007.androiddevmemo
 enum class MemoType {
     STORAGE,
     FILE_SHARE,
-    FRAGMENT
+    FRAGMENT,
+    INTENT
 }

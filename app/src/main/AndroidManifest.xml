@@ -3,6 +3,7 @@
     package="top.ss007.androiddevmemo">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
 
     <application
         android:allowBackup="true"
@@ -11,9 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".fragments.FragmentDemoActivity"
-            ></activity>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths" />
+        </provider>
+
+        <activity android:name=".intents.IntentDemoActivity"></activity>
+        <activity android:name=".fragments.FragmentDemoActivity" />
         <activity android:name=".storage.StorageActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

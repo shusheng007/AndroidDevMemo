@@ -40,7 +40,8 @@ class FragmentB : Fragment() {
             Navigator.open(
                 fc,
                 false,
-                false)
+                false
+            )
         }
     }
 
@@ -59,7 +60,7 @@ class FragmentB : Fragment() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         Log.d(TAG, "onSaveInstanceState")
-        outState.putString(KEY_NAME,"ShuSheng007")
+        outState.putString(KEY_NAME, "ShuSheng007")
 
     }
 
