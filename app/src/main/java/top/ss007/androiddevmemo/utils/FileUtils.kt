@@ -16,9 +16,9 @@ import java.io.File
  */
 object FileUtils {
 
-    public fun getUriForFile(context: Context, file:File): Uri {
+     fun getUriForFile(context: Context, file:File): Uri {
         if (Build.VERSION.SDK_INT>24){
-            return FileProvider.getUriForFile(context,context.packageName+".FileProvider",file)
+            return FileProvider.getUriForFile(context,context.packageName+".fileProvider",file)
         }
         return Uri.fromFile(file)
     }

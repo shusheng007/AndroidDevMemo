@@ -5,6 +5,10 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,9 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".shareFileBetweenApps.ShareFileActivity"></activity>
+
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -22,7 +28,7 @@
                 android:resource="@xml/file_provider_paths" />
         </provider>
 
-        <activity android:name=".intents.IntentDemoActivity"></activity>
+        <activity android:name=".intents.IntentDemoActivity" />
         <activity android:name=".fragments.FragmentDemoActivity" />
         <activity android:name=".storage.StorageActivity" />
         <activity android:name=".MainActivity">
