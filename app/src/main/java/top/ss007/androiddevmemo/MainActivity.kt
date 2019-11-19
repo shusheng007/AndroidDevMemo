@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import top.ss007.androiddevmemo.fragments.FragmentDemoActivity
 import top.ss007.androiddevmemo.intents.IntentDemoActivity
+import top.ss007.androiddevmemo.shareFileBetweenApps.ShareFileActivity
 import top.ss007.androiddevmemo.storage.StorageActivity
 
 class MainActivity : AppCompatActivity() {
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
                         startActivity(Intent(this@MainActivity,StorageActivity::class.java))
                     }
                     MemoType.FILE_SHARE->{
+                        startActivity(Intent(this@MainActivity,ShareFileActivity::class.java))
 
                     }
                     MemoType.FRAGMENT->{
