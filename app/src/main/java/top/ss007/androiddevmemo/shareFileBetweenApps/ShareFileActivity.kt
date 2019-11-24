@@ -36,7 +36,9 @@ class ShareFileActivity : AppCompatActivity() {
                 val intent = Intent(ACTION_SHARE_FILE).apply {
                     type = "text/plain"
                 }
-                startActivityForResult(intent, REQUEST_GET_FILE)
+                if (intent.resolveActivity(packageManager) != null) {
+                    startActivityForResult(intent, REQUEST_GET_FILE)
+                }
             }
         }
     }
