@@ -45,13 +45,13 @@ class ShareFileActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_GET_FILE) {
             data?.data?.also { returnUri ->
-                val inputText = try {
+                val input = try {
                     contentResolver.openFileDescriptor(returnUri, "r")
                 } catch (e: FileNotFoundException) {
                     Log.e("MainActivity", "File not found.")
                     return
                 }
-                val fd = inputText?.fileDescriptor
+                val fd = input?.fileDescriptor
                 ivImage.setImageBitmap(BitmapFactory.decodeFileDescriptor(fd))
             }
         }
