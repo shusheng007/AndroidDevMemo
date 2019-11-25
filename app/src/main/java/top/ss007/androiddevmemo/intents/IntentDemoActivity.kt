@@ -7,7 +7,6 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
 import android.provider.AlarmClock
 import android.provider.CalendarContract
 import android.provider.MediaStore
@@ -31,7 +30,7 @@ class IntentDemoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intent_demo)
-        imageView=findViewById(R.id.imageView)
+        imageView=findViewById(R.id.img_backgroud)
         findViewById<Button>(R.id.btn_alarm).setOnClickListener(listener)
         findViewById<Button>(R.id.btn_timer).setOnClickListener(listener)
         findViewById<Button>(R.id.btn_calender).setOnClickListener(listener)

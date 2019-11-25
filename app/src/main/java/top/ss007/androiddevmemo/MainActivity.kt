@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import top.ss007.androiddevmemo.architectureComponents.JetpackActivity
 import top.ss007.androiddevmemo.fragments.FragmentDemoActivity
 import top.ss007.androiddevmemo.intents.IntentDemoActivity
 import top.ss007.androiddevmemo.shareFileBetweenApps.ShareFileActivity
@@ -30,7 +31,8 @@ class MainActivity : AppCompatActivity() {
                 MemoData(1, "存储", MemoType.STORAGE),
                 MemoData(2, "文件分享", MemoType.FILE_SHARE),
                 MemoData(3, "Fragment", MemoType.FRAGMENT),
-                MemoData(4, "Intent", MemoType.INTENT)
+                MemoData(4, "Intent", MemoType.INTENT),
+                MemoData(5,"Jetpack",MemoType.ARCHITECTURE)
             )
         val adapter = CustomAdapter(dataSet)
         adapter.itemClickListener = object : CustomAdapter.OnItemClickListener {
@@ -49,6 +51,10 @@ class MainActivity : AppCompatActivity() {
                     MemoType.INTENT->{
                         startActivity(Intent(this@MainActivity,IntentDemoActivity::class.java))
                     }
+                    MemoType.ARCHITECTURE->{
+                        startActivity(Intent(this@MainActivity,JetpackActivity::class.java))
+                    }
+
                 }
 //                Toast.makeText(this@MainActivity, data.toString(), Toast.LENGTH_LONG).show()
             }

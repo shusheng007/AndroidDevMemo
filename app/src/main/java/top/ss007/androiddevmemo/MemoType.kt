@@ -12,5 +12,6 @@ enum class MemoType {
     STORAGE,
     FILE_SHARE,
     FRAGMENT,
-    INTENT
+    INTENT,
+    ARCHITECTURE
 }
