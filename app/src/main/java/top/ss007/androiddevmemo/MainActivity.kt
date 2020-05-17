@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import top.ss007.androiddevmemo.animation.MotionActivity
 import top.ss007.androiddevmemo.architectureComponents.JetpackActivity
 import top.ss007.androiddevmemo.fragments.FragmentDemoActivity
 import top.ss007.androiddevmemo.intents.IntentDemoActivity
@@ -32,7 +33,8 @@ class MainActivity : AppCompatActivity() {
                 MemoData(2, "文件分享", MemoType.FILE_SHARE),
                 MemoData(3, "Fragment", MemoType.FRAGMENT),
                 MemoData(4, "Intent", MemoType.INTENT),
-                MemoData(5,"Jetpack",MemoType.ARCHITECTURE)
+                MemoData(5,"Jetpack",MemoType.ARCHITECTURE),
+                MemoData(6,"动画",MemoType.ANIMATION)
             )
         val adapter = CustomAdapter(dataSet)
         adapter.itemClickListener = object : CustomAdapter.OnItemClickListener {
@@ -42,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                         startActivity(Intent(this@MainActivity,StorageActivity::class.java))
                     }
                     MemoType.FILE_SHARE->{
-                        startActivity(Intent(this@MainActivity,ShareFileActivity::class.java))
+                         startActivity(Intent(this@MainActivity,ShareFileActivity::class.java))
 
                     }
                     MemoType.FRAGMENT->{
@@ -53,6 +55,9 @@ class MainActivity : AppCompatActivity() {
                     }
                     MemoType.ARCHITECTURE->{
                         startActivity(Intent(this@MainActivity,JetpackActivity::class.java))
+                    }
+                    MemoType.ANIMATION->{
+                        startActivity(Intent(this@MainActivity,MotionActivity::class.java))
                     }
 
                 }

@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".architectureComponents.JetpackActivity"></activity>
+        <activity android:name=".animation.MotionActivity"></activity>
+        <activity android:name=".architectureComponents.JetpackActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -39,7 +40,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".shareFileBetweenApps.ShareFileActivity"></activity>
+        <activity android:name=".shareFileBetweenApps.ShareFileActivity" />
     </application>
 
 </manifest>

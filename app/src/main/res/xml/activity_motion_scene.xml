@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:constraintSetEnd="@+id/end"
+        app:constraintSetStart="@id/start"
+        app:duration="2000">
+       <KeyFrameSet>
+           <KeyPosition
+               app:framePosition="40"
+               app:motionTarget="@id/my_wife_left"
+               app:keyPositionType="parentRelative"
+               app:percentX="0"
+               />
+           <KeyPosition
+               app:framePosition="40"
+               app:motionTarget="@id/my_wife_right"
+               app:keyPositionType="parentRelative"
+               app:percentX="1"
+               />
+       </KeyFrameSet>
+        <OnSwipe
+            app:touchAnchorId="@+id/my_wife"
+            app:touchAnchorSide="top"
+            app:dragDirection="dragUp" />
+        <OnClick app:targetId="@+id/my_wife" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/my_wife"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <Constraint
+            android:id="@+id/my_wife_left"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:alpha="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <Constraint
+            android:id="@+id/my_wife_right"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:alpha="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/my_wife_left"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:alpha="1.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/my_wife"
+            app:layout_constraintTop_toTopOf="@id/my_wife"
+            app:layout_constraintBottom_toBottomOf="@id/my_wife"
+            />
+        <Constraint
+            android:id="@+id/my_wife"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintStart_toEndOf="@id/my_wife_left"
+            app:layout_constraintEnd_toStartOf="@id/my_wife_right"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <Constraint
+            android:id="@+id/my_wife_right"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:alpha="1.0"
+            app:layout_constraintStart_toEndOf="@id/my_wife"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/my_wife"
+            app:layout_constraintBottom_toBottomOf="@id/my_wife"
+            />
+    </ConstraintSet>
+</MotionScene>
