@@ -9,25 +9,54 @@
         app:duration="2000">
        <KeyFrameSet>
            <KeyPosition
-               app:framePosition="40"
                app:motionTarget="@id/my_wife_left"
+               app:framePosition="40"
                app:keyPositionType="parentRelative"
                app:percentX="0"
                />
            <KeyPosition
-               app:framePosition="40"
                app:motionTarget="@id/my_wife_right"
+               app:framePosition="40"
                app:keyPositionType="parentRelative"
                app:percentX="1"
                />
+           <KeyAttribute
+               app:motionTarget="@id/my_wife"
+               app:framePosition="100"
+               android:rotationY="180"
+               />
+           <KeyCycle
+               android:translationX="50dp"
+               app:framePosition="100"
+               app:motionTarget="@id/my_wife"
+               app:waveOffset="0"
+               app:wavePeriod="0"
+               app:waveShape="sin" />
+           <KeyCycle
+               android:translationX="50dp"
+               app:framePosition="50"
+               app:motionTarget="@id/my_wife"
+               app:waveOffset="0"
+               app:wavePeriod="1"
+               app:waveShape="sin" />
+           <KeyCycle
+               android:translationX="50dp"
+               app:framePosition="0"
+               app:motionTarget="@id/my_wife"
+               app:waveOffset="0"
+               app:wavePeriod="0"
+               app:waveShape="sin" />
        </KeyFrameSet>
+<!--        使动画响应滑动事件-->
         <OnSwipe
             app:touchAnchorId="@+id/my_wife"
             app:touchAnchorSide="top"
             app:dragDirection="dragUp" />
-        <OnClick app:targetId="@+id/my_wife" />
+<!--        使动画响应点击事件-->
+        <OnClick app:targetId="@+id/my_wife" app:clickAction="toggle" />
     </Transition>
 
+<!--    动画开始快照-->
     <ConstraintSet android:id="@+id/start">
         <Constraint
             android:id="@+id/my_wife"

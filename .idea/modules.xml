@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AndroidDevMemo.iml" filepath="$PROJECT_DIR$/AndroidDevMemo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/AndroidDevMemo-app.iml" filepath="$PROJECT_DIR$/app/AndroidDevMemo-app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AndroidDevMemo2-AndroidDevMemo.iml" filepath="$PROJECT_DIR$/AndroidDevMemo2-AndroidDevMemo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/GitHubProjects-AndroidDevMemo.iml" filepath="$PROJECT_DIR$/GitHubProjects-AndroidDevMemo.iml" group="AndroidDevMemo" />
-      <module fileurl="file://$PROJECT_DIR$/app/GitHubProjects-AndroidDevMemo-app.iml" filepath="$PROJECT_DIR$/app/GitHubProjects-AndroidDevMemo-app.iml" group="AndroidDevMemo/app" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AndroidDevMemo.iml" filepath="$PROJECT_DIR$/.idea/modules/AndroidDevMemo.iml" group="AndroidDevMemo" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="AndroidDevMemo/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/libraries/libraries.iml" filepath="$PROJECT_DIR$/.idea/modules/libraries/libraries.iml" group="AndroidDevMemo/libraries" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/libraries/viewbinding/viewbinding.iml" filepath="$PROJECT_DIR$/.idea/modules/libraries/viewbinding/viewbinding.iml" group="AndroidDevMemo/libraries/viewbinding" />
     </modules>
