@@ -46,6 +46,7 @@
                app:waveOffset="0"
                app:wavePeriod="0"
                app:waveShape="sin" />
+
        </KeyFrameSet>
 <!--        使动画响应滑动事件-->
         <OnSwipe
