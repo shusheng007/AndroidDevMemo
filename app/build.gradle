@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
@@ -36,8 +37,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinStdlibJdk7Version}"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinCoroutines}"
-    implementation "androidx.appcompat:appcompat:${appcompatVersion}"
     implementation "androidx.core:core-ktx:${coreKtxVersion}"
+    implementation "androidx.appcompat:appcompat:${appcompatVersion}"
     implementation "androidx.constraintlayout:constraintlayout:${constraintlayoutVersion}"
     implementation "androidx.recyclerview:recyclerview:${recyclerviewVersion}"
     implementation "androidx.cardview:cardview:${cardviewVersion}"
@@ -46,4 +47,7 @@ dependencies {
     testImplementation "junit:junit:${junitVersion}"
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //viewModel
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
 }

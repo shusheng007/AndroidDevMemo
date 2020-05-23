@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import top.ss007.androiddevmemo.animation.MotionActivity
 import top.ss007.androiddevmemo.architectureComponents.JetpackActivity
+import top.ss007.androiddevmemo.databinding.DataBindingActivity
 import top.ss007.androiddevmemo.fragments.FragmentDemoActivity
 import top.ss007.androiddevmemo.intents.IntentDemoActivity
 import top.ss007.androiddevmemo.shareFileBetweenApps.ShareFileActivity
@@ -34,7 +35,8 @@ class MainActivity : AppCompatActivity() {
                 MemoData(3, "Fragment", MemoType.FRAGMENT),
                 MemoData(4, "Intent", MemoType.INTENT),
                 MemoData(5,"Jetpack",MemoType.ARCHITECTURE),
-                MemoData(6,"动画",MemoType.ANIMATION)
+                MemoData(6,"动画",MemoType.ANIMATION),
+                MemoData(7,"DataBinding",MemoType.DATA_BINDING)
             )
         val adapter = CustomAdapter(dataSet)
         adapter.itemClickListener = object : CustomAdapter.OnItemClickListener {
@@ -58,6 +60,9 @@ class MainActivity : AppCompatActivity() {
                     }
                     MemoType.ANIMATION->{
                         startActivity(Intent(this@MainActivity,MotionActivity::class.java))
+                    }
+                    MemoType.DATA_BINDING->{
+                        startActivity(Intent(this@MainActivity,DataBindingActivity::class.java))
                     }
 
                 }

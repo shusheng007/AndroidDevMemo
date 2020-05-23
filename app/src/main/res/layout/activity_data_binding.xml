@@ -3,13 +3,80 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data >
-
+        <variable
+            name="viewModel"
+            type="top.ss007.androiddevmemo.databinding.DataBindingViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".databinding.DataBindingActivity">
+        tools:context=".databinding.DataBindingActivity"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tv_man"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="王二狗:"
+            android:textSize="22sp"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="25dp"/>
+
+        <TextView
+            android:id="@+id/tv_action"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="邀请牛翠花晚上一起生猴子"
+            android:textColor="@color/C1"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_man"
+            android:layout_marginTop="15dp"
+            android:lineSpacingMultiplier="1.2"
+            android:text="@{viewModel.action}"/>
+
+        <TextView
+            android:id="@+id/tv_girl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            tools:text="牛翠花"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_action"
+            android:layout_marginTop="120dp"
+            android:text="@{viewModel.targetGirl.name}"/>
+
+        <Button
+            android:id="@+id/btn_born_son"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="生猴子"
+            app:layout_constraintBottom_toTopOf="@+id/btn_seduce_girl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:onClick="@{(view)->viewModel.bornSon(viewModel.targetGirl)}"
+            />
+
+        <Button
+            android:id="@+id/btn_seduce_girl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="撩妹"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:onClick="@{(view)->viewModel.seduceGirl(viewModel.targetGirl)}"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

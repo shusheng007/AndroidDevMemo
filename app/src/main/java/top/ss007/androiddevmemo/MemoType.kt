@@ -14,5 +14,6 @@ enum class MemoType {
     FRAGMENT,
     INTENT,
     ARCHITECTURE,
-    ANIMATION
+    ANIMATION,
+    DATA_BINDING
 }
