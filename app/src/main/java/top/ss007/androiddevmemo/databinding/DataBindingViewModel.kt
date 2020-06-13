@@ -1,5 +1,6 @@
 package top.ss007.androiddevmemo.databinding
 
+import android.view.View
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 
@@ -15,6 +16,8 @@ import androidx.lifecycle.ViewModel
  */
 class DataBindingViewModel : ViewModel() {
 
+    val symbol: ObservableField<String> = ObservableField("~~")
+
     val action: ObservableField<String> = ObservableField("邀请牛翠花晚上一起生猴子")
     val targetGirl: Girl = Girl().apply {
         name = "牛翠花"
@@ -28,6 +31,7 @@ class DataBindingViewModel : ViewModel() {
             it.age = 18
         }
         action.set("邀请${girl.age.toString() + "岁的" + girl.name}晚上一起看月亮")
+        symbol.set("$$")
     }
 
     fun bornSon(girl: Girl) {
@@ -36,7 +40,11 @@ class DataBindingViewModel : ViewModel() {
             it.age = 30
         }
         action.set("邀请${girl.age.toString() + "岁的" + girl.name}晚上一起生猴子")
+        symbol.set("~~")
     }
 
+    fun layoutChanged(list: View.OnLayoutChangeListener){
+
+    }
 
 }

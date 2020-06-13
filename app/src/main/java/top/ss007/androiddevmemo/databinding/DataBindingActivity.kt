@@ -1,6 +1,7 @@
 package top.ss007.androiddevmemo.databinding
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -16,5 +17,8 @@ class DataBindingActivity : AppCompatActivity() {
 
         val viewModel = ViewModelProvider(this).get(DataBindingViewModel::class.java)
         binding.viewModel = viewModel
+
+        binding.btnSeduceGirl.setOnClickListener(View.OnClickListener {  })
+
     }
 }
