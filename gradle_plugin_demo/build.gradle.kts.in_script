@@ -1,0 +1,12 @@
+class DemoPlugin :Plugin<Project>{
+    override fun apply(target: Project) {
+        target.task("hello"){
+            this.doLast {
+                println("Hello gradle by kotlin")
+            }
+        }
+    }
+}
+
+//使用插件
+apply<DemoPlugin>()

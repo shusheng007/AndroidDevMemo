@@ -1,3 +1,4 @@
+//include ':gradle_plugin_demo'
 include ':app'
-rootProject.name='AndroidDevMemo'
 include ':libraries:viewbinding'
+rootProject.name='AndroidDevMemo'

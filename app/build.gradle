@@ -3,6 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+apply plugin: "top.ss007.srcplugin"
+
 android {
     compileSdkVersion rootProject.compileSdkVersion
     defaultConfig {
@@ -31,6 +33,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+}
+
+info{
+    name="书生"
 }
 
 dependencies {

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/AndroidDevMemo.iml" filepath="$PROJECT_DIR$/.idea/modules/AndroidDevMemo.iml" group="AndroidDevMemo" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AndroidDevMemo_buildSrc.iml" filepath="$PROJECT_DIR$/.idea/modules/AndroidDevMemo_buildSrc.iml" group="AndroidDevMemo/AndroidDevMemo_buildSrc" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="AndroidDevMemo/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/libraries/libraries.iml" filepath="$PROJECT_DIR$/.idea/modules/libraries/libraries.iml" group="AndroidDevMemo/libraries" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/libraries/viewbinding/viewbinding.iml" filepath="$PROJECT_DIR$/.idea/modules/libraries/viewbinding/viewbinding.iml" group="AndroidDevMemo/libraries/viewbinding" />
