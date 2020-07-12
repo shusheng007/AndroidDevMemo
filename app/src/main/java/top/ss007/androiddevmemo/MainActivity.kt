@@ -12,6 +12,7 @@ import top.ss007.androiddevmemo.architectureComponents.JetpackActivity
 import top.ss007.androiddevmemo.databinding.DataBindingActivity
 import top.ss007.androiddevmemo.fragments.FragmentDemoActivity
 import top.ss007.androiddevmemo.intents.IntentDemoActivity
+import top.ss007.androiddevmemo.permission.PermissionActivity
 import top.ss007.androiddevmemo.shareFileBetweenApps.ShareFileActivity
 import top.ss007.androiddevmemo.storage.StorageActivity
 
@@ -36,7 +37,8 @@ class MainActivity : AppCompatActivity() {
                 MemoData(4, "Intent", MemoType.INTENT),
                 MemoData(5,"Jetpack",MemoType.ARCHITECTURE),
                 MemoData(6,"动画",MemoType.ANIMATION),
-                MemoData(7,"DataBinding",MemoType.DATA_BINDING)
+                MemoData(7,"DataBinding",MemoType.DATA_BINDING),
+                MemoData(8,"权限演示",MemoType.PERMISSION)
             )
         val adapter = CustomAdapter(dataSet)
         adapter.itemClickListener = object : CustomAdapter.OnItemClickListener {
@@ -47,7 +49,6 @@ class MainActivity : AppCompatActivity() {
                     }
                     MemoType.FILE_SHARE->{
                          startActivity(Intent(this@MainActivity,ShareFileActivity::class.java))
-
                     }
                     MemoType.FRAGMENT->{
                         startActivity(Intent(this@MainActivity,FragmentDemoActivity::class.java))
@@ -64,6 +65,10 @@ class MainActivity : AppCompatActivity() {
                     MemoType.DATA_BINDING->{
                         startActivity(Intent(this@MainActivity,DataBindingActivity::class.java))
                     }
+                    MemoType.PERMISSION->{
+                        startActivity(Intent(this@MainActivity,PermissionActivity::class.java))
+                    }
+
 
                 }
 //                Toast.makeText(this@MainActivity, data.toString(), Toast.LENGTH_LONG).show()

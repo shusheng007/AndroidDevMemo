@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="top.ss007.androiddevmemo">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
@@ -17,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".databinding.DataBindingActivity"></activity>
+        <activity android:name=".permission.PermissionActivity"></activity>
+        <activity android:name=".databinding.DataBindingActivity" />
         <activity android:name=".animation.MotionActivity" />
         <activity android:name=".architectureComponents.JetpackActivity" />
 

@@ -15,5 +15,6 @@ enum class MemoType {
     INTENT,
     ARCHITECTURE,
     ANIMATION,
-    DATA_BINDING
+    DATA_BINDING,
+    PERMISSION
 }
