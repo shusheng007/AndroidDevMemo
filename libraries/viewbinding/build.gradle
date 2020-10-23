@@ -30,10 +30,12 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinStdlibJdk7Version}"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation "androidx.core:core-ktx:${coreKtxVersion}"
+
+    implementation "androidx.appcompat:appcompat:${appcompatVersion}"
     implementation "androidx.constraintlayout:constraintlayout:${constraintlayoutVersion}"
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //test
+    testImplementation "junit:junit:${junitVersion}"
+    androidTestImplementation "androidx.test:runner:${androidRunnerVersion}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${androidEspressoCoreVersion}"
 }
