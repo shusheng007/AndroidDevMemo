@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import top.ss007.androiddevmemo.animation.MotionActivity
 import top.ss007.androiddevmemo.architectureComponents.JetpackActivity
+import top.ss007.androiddevmemo.coroutines.CoroutinesActivity
 import top.ss007.androiddevmemo.databinding.DataBindingActivity
 import top.ss007.androiddevmemo.fragments.FragmentDemoActivity
 import top.ss007.androiddevmemo.intents.IntentDemoActivity
@@ -38,7 +39,9 @@ class MainActivity : AppCompatActivity() {
                 MemoData(5,"Jetpack",MemoType.ARCHITECTURE),
                 MemoData(6,"动画",MemoType.ANIMATION),
                 MemoData(7,"DataBinding",MemoType.DATA_BINDING),
-                MemoData(8,"权限演示",MemoType.PERMISSION)
+                MemoData(8,"权限演示",MemoType.PERMISSION),
+                MemoData(9,"协程演示",MemoType.COROUTINES)
+
             )
         val adapter = CustomAdapter(dataSet)
         adapter.itemClickListener = object : CustomAdapter.OnItemClickListener {
@@ -68,7 +71,9 @@ class MainActivity : AppCompatActivity() {
                     MemoType.PERMISSION->{
                         startActivity(Intent(this@MainActivity,PermissionActivity::class.java))
                     }
-
+                    MemoType.COROUTINES->{
+                        startActivity(Intent(this@MainActivity,CoroutinesActivity::class.java))
+                    }
 
                 }
 //                Toast.makeText(this@MainActivity, data.toString(), Toast.LENGTH_LONG).show()

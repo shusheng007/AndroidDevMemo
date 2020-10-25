@@ -16,5 +16,6 @@ enum class MemoType {
     ARCHITECTURE,
     ANIMATION,
     DATA_BINDING,
-    PERMISSION
+    PERMISSION,
+    COROUTINES
 }
