@@ -18,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".coroutines.CoroutinesActivity"></activity>
+        <activity android:name=".coroutines.CoroutinesActivity"
+            android:label="协程"></activity>
         <activity android:name=".permission.PermissionActivity" />
         <activity android:name=".databinding.DataBindingActivity" />
         <activity android:name=".animation.MotionActivity" />

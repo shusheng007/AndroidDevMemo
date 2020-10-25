@@ -30,7 +30,7 @@ class CoroutinesActivity : AppCompatActivity() {
         }
         btnSearch.setOnClickListener {
             viewModel.checkTheWomen()
-            btnSearch.text = "天眼系统正常查询中..."
+            btnSearch.text = "天眼系统正在查询中..."
             animateImage(findViewById<ImageView>(R.id.img_my_wife))
         }
     }
